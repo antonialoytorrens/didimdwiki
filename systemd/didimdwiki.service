@@ -52,7 +52,7 @@ PrivateTmp=yes
 PrivateDevices=yes
 
 # ── Privilege hardening ──────────────────────────────────────────────────────
-# Port 8888 does not require root; no setuid/setgid transitions happen.
+# Port 48888 does not require root; no setuid/setgid transitions happen.
 NoNewPrivileges=yes
 CapabilityBoundingSet=
 AmbientCapabilities=
@@ -83,7 +83,7 @@ ProtectKernelModules=yes
 RestrictNamespaces=yes
 
 # ── Network hardening ────────────────────────────────────────────────────────
-# AF_INET:    HTTP listener (port 8888)
+# AF_INET:    HTTP listener (port 48888)
 # AF_UNIX:    libuv's internal async/signal pipes
 # AF_NETLINK: getaddrinfo / name resolution
 RestrictAddressFamilies=AF_INET AF_UNIX AF_NETLINK

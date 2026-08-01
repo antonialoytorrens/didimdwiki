@@ -27,5 +27,5 @@ Description: Markdown wiki engine
  on disk, with revision history, sessions, CSRF protection, file uploads,
  a JSON API and a systemd service unit. There is no database.
  .
- Listens on 127.0.0.1:8888 by default; put nginx (or similar) in front
+ Listens on 127.0.0.1:48888 by default; put nginx (or similar) in front
  for TLS.

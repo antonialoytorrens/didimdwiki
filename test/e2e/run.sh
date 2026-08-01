@@ -2,7 +2,7 @@
 set -uo pipefail
 
 APP_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)
-BASE=http://127.0.0.1:8888
+BASE=http://127.0.0.1:48888
 JAR=$(mktemp)
 PASS=0
 FAIL=0

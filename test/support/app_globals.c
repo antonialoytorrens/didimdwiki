@@ -12,5 +12,5 @@ struct app_config	app_cfg = {
 	.tls_enabled = 0,
 	.login_required = 0,
 	.bind = "127.0.0.1",
-	.port = 8888,
+	.port = 48888,
 };

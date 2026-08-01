@@ -81,7 +81,7 @@ sudo apt install build-essential \
    ```sh
    make run
    ```
-4. Open <http://127.0.0.1:8888> and create the first account.
+4. Open <http://127.0.0.1:48888> and create the first account.
 
 `make build` already produces a production build. For a debug build (assertions, no optimization):
 
@@ -113,7 +113,7 @@ variables. An argument always wins over the environment.
 | `camelcase_links` | `0` | Autolink `CamelCase` words to pages. |
 | `tls_enabled` | `0` | Add `Secure` to the session cookie and make RSS links `https://`. Set this when something in front terminates TLS. |
 | `bind` | `127.0.0.1` | Listen address (numeric; hostnames are not resolved). |
-| `port` | `8888` | Listen port. |
+| `port` | `48888` | Listen port. |
 | `views_dir` | `src/templates` | Where the HTML templates are read from at startup. |
 | `public_dir` | `public` | Directory served at `/public`. |
 
@@ -147,10 +147,10 @@ A single page is capped at 512 KB of Markdown, and an uploaded file at 64 MB.
 Reads are open; anything that mutates needs a session cookie.
 
 ```sh
-curl localhost:8888/api/v1/pages
-curl localhost:8888/api/v1/pages/WikiHome
-curl localhost:8888/api/v1/pages/WikiHome/revisions
-curl -b jar -X PUT localhost:8888/api/v1/pages/WikiHome -d '{"body":"# Hello"}'
+curl localhost:48888/api/v1/pages
+curl localhost:48888/api/v1/pages/WikiHome
+curl localhost:48888/api/v1/pages/WikiHome/revisions
+curl -b jar -X PUT localhost:48888/api/v1/pages/WikiHome -d '{"body":"# Hello"}'
 ```
 
 `/api/v1/files` mirrors it for uploads.
@@ -221,10 +221,3 @@ Project Link:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Acknowledgments
-
-* [ecewo](https://github.com/ecewo/ecewo) and its plugin ecosystem
-* [md4c](https://github.com/mity/md4c) for a fast, standards-compliant Markdown parser
-* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
