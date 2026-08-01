@@ -12,6 +12,7 @@ test/build/
 
 # Runtime / local data
 cert/
+logs/
 data/*.log
 data/users.tsv
 data/sessions.tsv
