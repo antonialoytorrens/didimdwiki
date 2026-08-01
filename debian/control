@@ -1,0 +1,31 @@
+Source: didimdwiki
+Section: web
+Priority: optional
+Maintainer: Antoni Aloy Torrens <antoni_aloy@ikaue.com>
+Build-Depends: debhelper-compat (= 13),
+               dh-sequence-installsysusers,
+               build-essential,
+               libecewo-dev,
+               libecewo-cookie-dev,
+               libecewo-fs-dev,
+               libecewo-static-dev,
+               libecewo-multipart-dev,
+               libecewo-helmet-dev,
+               libmd4c-dev,
+               libcjson-dev,
+               libargon2-dev
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/antonialoytorrens/didimdwiki
+
+Package: didimdwiki
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Markdown wiki engine
+ didimdwiki is a small personal wiki written in C. Pages are Markdown files
+ on disk, with revision history, sessions, CSRF protection, file uploads,
+ a JSON API and a systemd service unit. There is no database.
+ .
+ Listens on 127.0.0.1:8888 by default; put nginx (or similar) in front
+ for TLS.

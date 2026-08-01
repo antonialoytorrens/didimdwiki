@@ -1,0 +1,95 @@
+[Unit]
+Description=didimdwiki markdown wiki
+Documentation=https://github.com/your-org/didimdwiki
+After=network.target
+
+[Service]
+Type=simple
+User=didimdwiki
+Group=didimdwiki
+
+# All application paths are relative to the process working directory:
+# data/, src/templates/ and public/.
+WorkingDirectory=/var/lib/didimdwiki
+
+# StateDirectory creates /var/lib/didimdwiki/ with correct ownership before
+# any ExecStartPre runs. Subdirectory names must not start with '.', so
+# data/pages/.rev and data/uploads/.meta are created by ExecStartPre below.
+StateDirectory=didimdwiki didimdwiki/data didimdwiki/data/pages \
+               didimdwiki/data/uploads didimdwiki/data/templates \
+               didimdwiki/data/tmp
+StateDirectoryMode=0750
+
+# Create dot-subdirectories that StateDirectory cannot express.
+ExecStartPre=install -d -m 0750 \
+    /var/lib/didimdwiki/data/pages/.rev \
+    /var/lib/didimdwiki/data/uploads/.meta
+
+# src/templates/ and public/ are read-only program data and live with the
+# binary, not in the writable state directory, so they are passed absolutely.
+ExecStart=/opt/didimdwiki/didimdwiki \
+    views_dir=/opt/didimdwiki/src/templates \
+    public_dir=/opt/didimdwiki/public \
+    login_required=1 allow_registration=0
+
+# Restart on crash but not on clean exit (e.g. admin stop).
+Restart=on-failure
+RestartSec=5
+
+# ── Filesystem hardening ─────────────────────────────────────────────────────
+# The process may only write inside its state directory. Everything else
+# (including /opt/didimdwiki itself) is read-only from the service's view.
+ProtectSystem=strict
+ReadWritePaths=/var/lib/didimdwiki
+
+# Isolate /tmp and /var/tmp from the rest of the system. The application
+# uses data/tmp/ (relative to WorkingDirectory), not /tmp, so this is free.
+PrivateTmp=yes
+
+# ── Device hardening ─────────────────────────────────────────────────────────
+# Session and CSRF tokens come from /dev/urandom, which PrivateDevices still
+# provides in the minimal /dev it sets up.
+PrivateDevices=yes
+
+# ── Privilege hardening ──────────────────────────────────────────────────────
+# Port 8888 does not require root; no setuid/setgid transitions happen.
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+# ── Memory hardening ─────────────────────────────────────────────────────────
+# Prevent writable+executable memory mappings. Nothing here JITs or dlopen()s
+# anything.
+MemoryDenyWriteExecute=yes
+
+# ── Syscall / personality hardening ─────────────────────────────────────────
+# @system-service covers the file, socket and epoll calls the application and
+# its event loop need.
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources @obsolete @mount @swap @reboot
+SystemCallErrorNumber=EPERM
+SystemCallArchitectures=native
+LockPersonality=yes
+RestrictRealtime=yes
+
+# ── Kernel interface hardening ───────────────────────────────────────────────
+ProtectClock=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+
+# ── Namespace hardening ──────────────────────────────────────────────────────
+RestrictNamespaces=yes
+
+# ── Network hardening ────────────────────────────────────────────────────────
+# AF_INET:    HTTP listener (port 8888)
+# AF_UNIX:    libuv's internal async/signal pipes
+# AF_NETLINK: getaddrinfo / name resolution
+RestrictAddressFamilies=AF_INET AF_UNIX AF_NETLINK
+
+# ── Miscellaneous ────────────────────────────────────────────────────────────
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

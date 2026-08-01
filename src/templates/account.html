@@ -1,0 +1,30 @@
+<article class="auth-form">
+	<h1>Account</h1>
+	$NOTICE$
+	<table class="listing meta-table">
+		<tr><th>User</th><td>$NAME$</td></tr>
+		<tr><th>Created</th><td>$CREATED$</td></tr>
+	</table>
+
+	<h2>Change password</h2>
+	<form method="post" action="/account">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="action" value="password">
+		<label>
+			Current password
+			<input type="password" name="oldpassword" required
+			    autocomplete="current-password">
+		</label>
+		<label>
+			New password
+			<input type="password" name="password" required
+			    autocomplete="new-password" minlength="8">
+		</label>
+		<label>
+			Repeat new password
+			<input type="password" name="password2" required
+			    autocomplete="new-password" minlength="8">
+		</label>
+		<div class="buttons"><button type="submit">Change password</button></div>
+	</form>
+</article>

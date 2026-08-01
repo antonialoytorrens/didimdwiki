@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+	<title>didimdwiki recent changes</title>
+	<link>$BASE$/changes</link>
+	<description>Recently modified wiki pages</description>
+	<language>en</language>
+	<lastBuildDate>$BUILD$</lastBuildDate>
+$ITEMS$
+</channel>
+</rss>

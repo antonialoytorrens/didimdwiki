@@ -1,0 +1,19 @@
+<article class="diff">
+	<h1>$NAME$</h1>
+	<p class="meta">
+		Revision $STAMP$ compared with the current page &middot;
+		<a href="/wiki/$NAME_URL$?history=1">history</a> &middot;
+		<a href="/wiki/$NAME_URL$">current page</a>
+	</p>
+	<div class="difftext">
+$DIFF$
+	</div>
+	<form method="post" action="/wiki/$NAME_URL$">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="action" value="restore">
+		<input type="hidden" name="stamp" value="$STAMP_RAW$">
+		<div class="buttons">
+			<button type="submit">Restore this revision</button>
+		</div>
+	</form>
+</article>

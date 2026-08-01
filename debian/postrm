@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+purge)
+	rm -f /var/lib/didimdwiki/didimdwiki.so
+	# Leave wiki data under /var/lib/didimdwiki for the admin to remove.
+	;;
+esac
+
+#DEBHELPER#
+
+exit 0

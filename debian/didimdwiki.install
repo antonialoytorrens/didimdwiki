@@ -1,0 +1,7 @@
+didimdwiki opt/didimdwiki/
+src/templates/* opt/didimdwiki/src/templates/
+public/css/* opt/didimdwiki/public/css/
+public/js/* opt/didimdwiki/public/js/
+public/img/* opt/didimdwiki/public/img/
+data/templates/* opt/didimdwiki/skel/templates/
+systemd/didimdwiki.service usr/lib/systemd/system/

@@ -1,0 +1,26 @@
+<article class="auth-form">
+	<h1>Create an account</h1>
+	$NOTICE$
+	<form method="post" action="/register">
+		<label>
+			Username
+			<input type="text" name="username" required autofocus
+			    autocomplete="username" maxlength="127"
+			    pattern="[A-Za-z0-9._-]{2,64}">
+		</label>
+		<label>
+			Password
+			<input type="password" name="password" required
+			    autocomplete="new-password" minlength="8" maxlength="128">
+		</label>
+		<label>
+			Repeat password
+			<input type="password" name="password2" required
+			    autocomplete="new-password" minlength="8" maxlength="128">
+		</label>
+		<div class="buttons">
+			<button type="submit">Create account</button>
+			<a class="secondary button" href="/login">Back to log in</a>
+		</div>
+	</form>
+</article>

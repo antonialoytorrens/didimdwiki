@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	-$(MAKE) clean
+	dh_auto_clean
+
+override_dh_auto_build:
+	$(MAKE) build
+
+override_dh_auto_test:
+	# e2e needs a listening socket; unit and integration do not
+	$(MAKE) test-unit test-integration
+
+override_dh_auto_install:
+	:

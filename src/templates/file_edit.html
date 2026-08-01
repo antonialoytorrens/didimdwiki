@@ -1,0 +1,44 @@
+<article class="editor">
+	<h1>$NAME$</h1>
+	$NOTICE$
+	<table class="listing meta-table">
+		<tr><th>Original name</th><td>$ORIGINAL$</td></tr>
+		<tr><th>Type</th><td>$MIME$</td></tr>
+		<tr><th>Size</th><td>$SIZE$</td></tr>
+		<tr><th>Uploaded</th><td>$MODIFIED$ by $OWNER$</td></tr>
+		<tr><th>Link</th><td><code>![alt](/files/$NAME_URL$)</code></td></tr>
+	</table>
+
+	<div class="preview">$PREVIEW$</div>
+
+	<form method="post" action="/files/$NAME_URL$">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="action" value="rename">
+		<label>
+			Rename to
+			<input type="text" name="newname" value="$NAME$" required
+			    maxlength="127">
+		</label>
+		<div class="buttons"><button type="submit">Rename</button></div>
+	</form>
+
+	<form method="post" action="/files/$NAME_URL$"
+	    enctype="multipart/form-data">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="action" value="replace">
+		<label>
+			Replace contents
+			<input type="file" name="file" required>
+		</label>
+		<div class="buttons"><button type="submit">Replace</button></div>
+	</form>
+
+	<form method="post" action="/files/$NAME_URL$">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="_method" value="delete">
+		<div class="buttons">
+			<button type="submit" class="danger">Delete file</button>
+			<a class="secondary button" href="/files">Back to files</a>
+		</div>
+	</form>
+</article>

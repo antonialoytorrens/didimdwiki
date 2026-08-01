@@ -1,0 +1,16 @@
+<article class="search-results">
+	<h1>Search</h1>
+	<form class="search wide" action="/search" method="get">
+		<input type="search" name="q" value="$QUERY$" autofocus
+		    aria-label="Search">
+		<button type="submit">Search</button>
+	</form>
+	<p class="meta">
+		Prefix with <code>@</code> to search page text only, or
+		<code>/</code> to search page names only.
+	</p>
+	$SUMMARY$
+	<div class="results">
+		$RESULTS$
+	</div>
+</article>

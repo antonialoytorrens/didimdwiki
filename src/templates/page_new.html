@@ -1,0 +1,24 @@
+<article class="editor">
+	<h1>Create a page</h1>
+	$NOTICE$
+	<form method="post" action="/wiki">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<label>
+			Page name
+			<input type="text" name="name" value="$NAME$" required
+			    maxlength="127" autofocus
+			    pattern="[A-Za-z0-9][A-Za-z0-9 ._+()-]*">
+		</label>
+		<label>
+			Start from a template
+			<select name="template" onchange="location.search='?template='+this.value">
+				$TEMPLATES$
+			</select>
+		</label>
+		<textarea name="body" rows="22" spellcheck="false">$BODY_TEXT$</textarea>
+		<div class="buttons">
+			<button type="submit" name="action" value="create">Create</button>
+			<a class="secondary button" href="/index">Cancel</a>
+		</div>
+	</form>
+</article>

@@ -1,0 +1,23 @@
+<article class="editor">
+	<h1>Editing $NAME$</h1>
+	$NOTICE$
+	<form method="post" action="/wiki/$NAME_URL$">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="action" value="save">
+		<textarea name="body" rows="26" spellcheck="false" autofocus>$BODY_TEXT$</textarea>
+		<div class="buttons">
+			<button type="submit" name="action" value="save">Save</button>
+			<button type="submit" name="action" value="preview" class="secondary">Preview</button>
+			<a class="secondary button" href="/wiki/$NAME_URL$">Cancel</a>
+		</div>
+	</form>
+	$PREVIEW$
+	<details class="cheatsheet">
+		<summary>Markdown quick reference</summary>
+		<pre>**bold**  *italic*  ~~strike~~  `code`
+# Heading      - bullet       1. numbered
+[[PageName]]   [text](url)    ![alt](/files/x.png)
+- [ ] task     - [x] done     &gt; quote      ---
+| a | b |      ```lang ... ```</pre>
+	</details>
+</article>

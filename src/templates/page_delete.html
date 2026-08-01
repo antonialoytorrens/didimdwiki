@@ -1,0 +1,15 @@
+<article class="confirm">
+	<h1>Delete $NAME$?</h1>
+	<p>
+		This removes the current page. Its revision history is kept, so the
+		page can be recreated from an earlier revision.
+	</p>
+	<form method="post" action="/wiki/$NAME_URL$">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="_method" value="delete">
+		<div class="buttons">
+			<button type="submit" class="danger">Delete permanently</button>
+			<a class="secondary button" href="/wiki/$NAME_URL$">Cancel</a>
+		</div>
+	</form>
+</article>

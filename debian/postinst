@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+case "$1" in
+configure)
+	install -d -m 0750 -o didimdwiki -g didimdwiki /var/lib/didimdwiki
+	ln -sfn /opt/didimdwiki/didimdwiki.so /var/lib/didimdwiki/didimdwiki.so
+	;;
+esac
+
+exit 0

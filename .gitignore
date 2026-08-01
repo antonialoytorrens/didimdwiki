@@ -1,0 +1,40 @@
+# Build
+.objs/
+didimdwiki
+*.o
+*.d
+*.swp
+*.swo
+*~
+external/*
+!external/unity/
+test/build/
+
+# Runtime / local data
+cert/
+data/*.log
+data/users.tsv
+data/sessions.tsv
+data/tmp/
+data/pages/
+data/uploads/
+!data/templates/
+
+# Debian packaging artefacts
+debian/files
+debian/.debhelper/
+debian/didimdwiki/
+debian/*.debhelper*
+debian/*.substvars
+debian/debhelper-build-stamp
+*.buildinfo
+*.changes
+*.dsc
+*.tar.xz
+*.tar.gz
+/*.deb
+../didimdwiki_*.deb
+../didimdwiki_*.buildinfo
+../didimdwiki_*.changes
+../didimdwiki_*.dsc
+../didimdwiki_*.tar.*

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$TITLE$ - didimdwiki</title>
+<link rel="stylesheet" href="/public/css/style.css">
+<link rel="icon" href="/public/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="/changes.rss">
+</head>
+<body>
+<header id="header">
+	<a class="brand" href="/">didimdwiki</a>
+	<nav>
+		<a href="/index">Index</a>
+		<a href="/files">Files</a>
+		<a href="/changes">Changes</a>
+		<a href="/wiki">New</a>
+		<a href="/wiki/WikiHelp">Help</a>
+	</nav>
+	<form class="search" action="/search" method="get" role="search">
+		<svg class="search-icon" width="16" height="16" viewBox="0 0 16 16"
+		    fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+			<circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+			<path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.5"
+			    stroke-linecap="round"/>
+		</svg>
+		<input type="search" name="q" placeholder="Search" aria-label="Search">
+	</form>
+	<div class="auth">$NAVAUTH$</div>
+</header>
+
+<main id="content">
+$BODY$
+</main>
+
+<footer id="footer">
+	didimdwiki $VERSION$ &dash; a markdown wiki on
+	<a href="https://github.com/ecewo/ecewo">ecewo</a>
+</footer>
+</body>
+</html>

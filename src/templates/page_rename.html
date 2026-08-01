@@ -1,0 +1,19 @@
+<article class="confirm">
+	<h1>Rename $NAME$</h1>
+	$NOTICE$
+	<p>Existing links using <code>[[$NAME$]]</code> are not rewritten.</p>
+	<form method="post" action="/wiki/$NAME_URL$">
+		<input type="hidden" name="csrf" value="$CSRF$">
+		<input type="hidden" name="action" value="rename">
+		<label>
+			New name
+			<input type="text" name="newname" value="$NAME$" required
+			    maxlength="127" autofocus
+			    pattern="[A-Za-z0-9][A-Za-z0-9 ._+()-]*">
+		</label>
+		<div class="buttons">
+			<button type="submit">Rename</button>
+			<a class="secondary button" href="/wiki/$NAME_URL$">Cancel</a>
+		</div>
+	</form>
+</article>
