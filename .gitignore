@@ -39,3 +39,4 @@ debian/debhelper-build-stamp
 ../didimdwiki_*.changes
 ../didimdwiki_*.dsc
 ../didimdwiki_*.tar.*
+.env

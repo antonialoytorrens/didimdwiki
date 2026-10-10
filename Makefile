@@ -86,3 +86,14 @@ help:
 	@echo "clean              remove objects and the binary"
 
 -include $(DEPS)
+
+# --- SonarQube ---
+SCAN_STD ?= c99
+SCAN_INCLUDES ?= -Isrc/includes
+
+ifneq (,$(wildcard ./.env))
+include .env
+export
+endif
+
+include scan.mk
